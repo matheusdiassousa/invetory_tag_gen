@@ -1,0 +1,10 @@
+Como executar um script do PowerShell
+
+-> Criamos um arquivo com o nosso script e o salvamos com a extensão ".ps1";
+
+-> Depois ativamos a política de permissão para executar scripts usando o comando:
+------> Set-ExecutionPolicy RemoteSigned
+Depois clique em 'A' e aperte 'Enter'.
+
+-> Depois é só encontrar o endereço do arquivo e executá-lo.
+
