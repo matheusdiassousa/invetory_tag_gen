@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as pltimg
 import os
 from PIL import Image, ImageDraw, ImageFont
+import pandas as pd
 
 
 
@@ -111,26 +112,3 @@ def adhesive_tag_75x25_anyText(file_name, text1, text2, text3, f1, f2, f3, delet
 
     else:
         pass;
-
-
-
-'''PILLOW - Changing Image Type
-image = Image.open('unsplash_01.jpg')
-image.save('new_image.png')
-
-PILLOW - Resizing an Image
-
-image = Image.open('unsplash_01.jpg')
-new_image = image.resize((400, 400))
-new_image.save('image_400.jpg')
-
-print(image.size) # Output: (1200, 776)
-print(new_image.size) # Output: (400, 400)
-
-Resizing an Image and keeping the aspect ratio
-
-image = Image.open('unsplash_01.jpg')
-image.thumbnail((400, 400))
-image.save('image_thumbnail.jpg')
-
-'''
