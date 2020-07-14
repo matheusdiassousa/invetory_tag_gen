@@ -12,8 +12,8 @@ data = pd.read_excel(excel_file, sheet_name='inventory_form', skiprows=6);
 col_names = data.columns.values.tolist();
 number_of_itens = data[col_names[1]].values;
 
-#itens = [289, 290, 291];
-itens = np.arange(443,470,1);
+itens = [648, 649];
+#itens = np.arange(519,525,1);
 
 #itens = np.arange(152);
 try:

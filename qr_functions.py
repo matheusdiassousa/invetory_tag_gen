@@ -45,7 +45,7 @@ def adhesive_tag_75x25(data, file_name, data_pd, data_model, data_item, data_pn,
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 22);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
     text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
     t1.text( (5,90), data_pd, font = textFont, fill=(0,0,0));
     t1.text( (5,120), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
