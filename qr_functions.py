@@ -19,7 +19,7 @@ def adhesive_tag_75x25(data, file_name, data_pd, data_model, data_item, data_pn,
     qrcode.png('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode.png', scale=6);
 
     qrcode_img = Image.open('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode.png');
-    qrcode_img.thumbnail((222,222));
+    qrcode_img.thumbnail((210,210));
     qrcode_img.save('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode_resized.png');
     qrcode_img_resized = Image.open('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode_resized.png');
 
@@ -45,8 +45,8 @@ def adhesive_tag_75x25(data, file_name, data_pd, data_model, data_item, data_pn,
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
-    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 18);
+    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 18);
     t1.text( (5,90), data_pd, font = textFont, fill=(0,0,0));
     t1.text( (5,120), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
     t1.text( (5,150), data_pn, font = text2Font, fill=(0,0,0));
@@ -91,8 +91,8 @@ def adhesive_tag_75x25_anyText(file_name, text1, text2, text3, f1, f2, f3, delet
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 22);
-    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 18);
+    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 19);
     t1.text( (50,90), text1, font = textFont, fill=(0,0,0));
     t1.text( (50,120), text2, font = textFont, fill=(0,0,0));
     t1.text( (50,150), text3, font = textFont, fill=(0,0,0));
