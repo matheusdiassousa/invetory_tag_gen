@@ -147,7 +147,7 @@ df = pd.DataFrame({
     'General Use (Qty)': inv_gu,
     'P&D (Qty)': inv_pj1,
     'uMCP (Qty)': inv_pj2,
-    'Project_1 (Qty)': inv_pj3,
+    'UFS (Qty)': inv_pj3,
     'Project_2 (Qty)': inv_pj4,
 });
 
