@@ -31,15 +31,17 @@ inv_pj2 = [];
 inv_pj3 = [];
 inv_pj4 = [];
 
+#col_inventory[0] -> Description
+#col_inventory[1] -> Item
+#col_inventory[5] -> Part Number
+#col_inventory[6] -> Unit
+#col_inventory[7] -> Qty
 inventory_desc = data_inventory[col_inventory[0]].values;
 inventory_Item = data_inventory[col_inventory[1]].values;
 #print(inventory_Item);
-
-    
-
-inventory_PN = data_inventory[col_inventory[5]].values;
-inventory_unit = data_inventory[col_inventory[6]].values;
-inventory_qty = data_inventory[col_inventory[7]].values;
+inventory_PN = data_inventory[col_inventory[6]].values;
+inventory_unit = data_inventory[col_inventory[7]].values;
+inventory_qty = data_inventory[col_inventory[8]].values;
 
 for item in inventory_Item:
     
