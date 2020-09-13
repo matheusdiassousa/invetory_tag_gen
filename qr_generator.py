@@ -31,7 +31,7 @@ try:
         data_sn = data.loc[item, 'Serial Number'];
 
         if(str(data_pd) != "nan"):
-            QRCode = str(data_item) + '/' + str(data_model) + '/' + str(data_pd);
+            #QRCode = str(data_item) + '/' + str(data_model) + '/' + str(data_pd);
             filename = str(data_item) + '_' + str(data_model);
 
             textl1 = str(data_pd);
@@ -40,7 +40,8 @@ try:
             textl4 = str(data_pn);
             textl5 = str(data_sn);
             
-            adhesive_tag_75x25_v2(QRCode, filename, textl1, textl2, textl3, textl4, textl5, True);
+            adhesive_tag_75x25(filename, textl1, textl2, textl3, textl4, textl5, True);
+            #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, textl5, True);
             #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, True);
             #adhesive_tag_75x25(str('19801ade-3f7e-4195-9e25-9b112021eacd'), filename, True, str(data_pd), str(data_model), str(data_item));
         else:
