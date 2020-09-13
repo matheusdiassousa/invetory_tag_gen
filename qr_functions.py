@@ -15,20 +15,21 @@ import pandas as pd
 
 
 def adhesive_tag_75x25(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files):
-    qrcode = QRCode(data_pn);
-    qrcode.png('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode.png', scale=6);
+    size = "75x25";
+    qrcode = QRCode(data_pn); #Gera o Qr Code com os dados vindos do campo part number da planilha do inventório
+    qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
 
-    qrcode_img = Image.open('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode.png');
+    qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png');
     qrcode_img.thumbnail((210,210));
-    qrcode_img.save('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode_resized.png');
-    qrcode_img_resized = Image.open('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode_resized.png');
+    qrcode_img.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
+    qrcode_img_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
 
-    eld_logo = Image.open('images/base_imgs_75x25/logo_eldorado_597x160.png');
+    eld_logo = Image.open('images/base_imgs_'+size+'/logo_eldorado_597x160.png');
     eld_logo.thumbnail((250, 250));
-    eld_logo.save('images/base_imgs_75x25/temp_imgs/eld_logo_resized.png');
-    eld_logo_resized = Image.open('images/base_imgs_75x25/temp_imgs/eld_logo_resized.png');
+    eld_logo.save('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+    eld_logo_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
 
-    background_75x25 = Image.open('images/base_imgs_75x25/75x25_background.png');
+    background_75x25 = Image.open('images/base_imgs_'+size+'/75x25_background.png');
     img_mounting = background_75x25.copy();
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
@@ -39,9 +40,9 @@ def adhesive_tag_75x25(file_name, data_pd, data_model, data_item, data_pn, data_
     
 
 
-    img_mounting.save('images/base_imgs_75x25/temp_imgs/' + file_name + '.png');
+    img_mounting.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
 
-    qr_img = Image.open('images/base_imgs_75x25/temp_imgs/' + file_name + '.png');
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
@@ -52,39 +53,40 @@ def adhesive_tag_75x25(file_name, data_pd, data_model, data_item, data_pn, data_
     t1.text( (5,140), data_pn, font = text2Font, fill=(0,0,0));
     t1.text( (5,160), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
 
-    qr_img.save('images/base_imgs_75x25/temp_imgs/' + file_name + '.png');
-    qr_img = Image.open('images/base_imgs_75x25/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/gen_tags_75x25/' + file_name + '.png');
+    qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
+    qr_img.save('images/gen_tags_'+size+'/' + file_name + '.png');
 
 
 
 
     #imgpil.show()
     if(delete_temp_files == True):
-        os.remove('images/base_imgs_75x25/temp_imgs/eld_logo_resized.png');
-        os.remove('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode_resized.png');
-        os.remove('images/base_imgs_75x25/temp_imgs/' + file_name + '.png');
-        os.remove('images/base_imgs_75x25/temp_imgs/'+data_item+'_qrcode.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png');
 
     else:
         pass;
 
 
 def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files):
+    size = "100x80";
     qrcode = QRCode(data_pn); #Gera o Qr Code com os dados vindos do campo part number da planilha do inventório
-    qrcode.png('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
+    qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
 
-    qrcode_img = Image.open('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
+    qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
     qrcode_img.thumbnail((210,210)); #redimensiona para 210p por 210p
-    qrcode_img.save('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
-    qrcode_img_resized = Image.open('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode_resized.png'); #reabre a imagem redimensionada 
+    qrcode_img.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
+    qrcode_img_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #reabre a imagem redimensionada 
 
-    eld_logo = Image.open('images/base_imgs_100x80/logo_eldorado_597x160.png'); #
+    eld_logo = Image.open('images/base_imgs_'+size+'/logo_eldorado_597x160.png'); #
     #eld_logo.thumbnail((250, 250)); 
     #eld_logo.save('images/base_imgs_100x80/temp_imgs/eld_logo_resized.png');
     #eld_logo_resized = Image.open('images/base_imgs_100x80/temp_imgs/eld_logo_resized.png');
 
-    background_100x80 = Image.open('images/base_imgs_100x80/100x80_background.png');
+    background_100x80 = Image.open('images/base_imgs_'+size+'/100x80_background.png');
     img_mounting = background_100x80.copy();
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
@@ -95,9 +97,9 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
     
 
 
-    img_mounting.save('images/base_imgs_100x80/temp_imgs/' + file_name + '.png');
+    img_mounting.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
 
-    qr_img = Image.open('images/base_imgs_100x80/temp_imgs/' + file_name + '.png');
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
@@ -108,19 +110,76 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
     t1.text( (20,220), data_pn, font = text2Font, fill=(0,0,0));
     t1.text( (20,250), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
 
-    qr_img.save('images/base_imgs_100x80/temp_imgs/' + file_name + '.png');
-    qr_img = Image.open('images/base_imgs_100x80/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/base_imgs_100x80/' + file_name + '.png');
+    qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
+    qr_img.save('images/base_imgs_'+size+'/' + file_name + '.png');
 
 
 
 
     #imgpil.show()
     if(delete_temp_files == True):
-        os.remove('images/base_imgs_100x80/temp_imgs/eld_logo_resized.png');
-        os.remove('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode_resized.png');
-        os.remove('images/base_imgs_100x80/temp_imgs/' + file_name + '.png');
-        os.remove('images/base_imgs_100x80/temp_imgs/'+data_item+'_qrcode.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png');
+
+    else:
+        pass;
+
+
+def adhesive_tag_50x30(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files):
+    size = "50x30";
+    qrcode = QRCode(data_pn); #Gera o Qr Code com os dados vindos do campo part number da planilha do inventório
+    qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
+
+    qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
+    qrcode_img.thumbnail((190,190)); #redimensiona para 210p por 210p
+    qrcode_img.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
+    qrcode_img_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #reabre a imagem redimensionada 
+
+    eld_logo = Image.open('images/base_imgs_'+size+'/logo_eldorado_597x160.png'); #
+    eld_logo.thumbnail((250, 250)); 
+    eld_logo.save('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+    eld_logo_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+
+    background_50x30 = Image.open('images/base_imgs_'+size+'/50x30_background.png');
+    img_mounting = background_50x30.copy();
+
+    #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
+    eld_logo_pos = ( (15) , (15) );
+    qrcode_img_pos = ( (int(background_50x30.width) - int(qrcode_img_resized.width) - 10) , ( int(background_50x30.height/2) - int(qrcode_img_resized.height/2)-40 ));
+    img_mounting.paste(eld_logo_resized, eld_logo_pos, eld_logo_resized);
+    img_mounting.paste(qrcode_img_resized, qrcode_img_pos);
+    
+
+
+    img_mounting.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+    qr_img.thumbnail((595, 595));
+    
+    t1 = ImageDraw.Draw(qr_img);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 19);
+    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 19);
+    t1.text( (15,90), data_pd, font = textFont, fill=(0,0,0));
+    t1.text( (15,110), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
+    t1.text( (15,130), data_pn, font = text2Font, fill=(0,0,0));
+    t1.text( (15,150), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
+
+    qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+    qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
+    qr_img.save('images/base_imgs_'+size+'/' + file_name + '.png');
+
+
+
+
+    #imgpil.show()
+    if(delete_temp_files == True):
+        os.remove('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
+        os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png');
 
     else:
         pass;
