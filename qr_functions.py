@@ -250,9 +250,9 @@ def adhesive_tag_composition_102x23(img1, img2, img3):
     img2open = Image.open('images/gen_tags/'+str(img2)+'.png');
     img3open = Image.open('images/gen_tags/'+str(img3)+'.png');
 
-    img1_pos = ( (1) , (1) );
-    img2_pos = ( (340) , (1) );
-    img3_pos = ( (680) , (1) );
+    img1_pos = ( (0) , (1) );
+    img2_pos = ( (339) , (1) );
+    img3_pos = ( (679) , (1) );
 
     img_mounting.paste(img1open, img1_pos);
     img_mounting.paste(img2open, img2_pos);
