@@ -21,9 +21,9 @@ number_of_itens = data[col_names[1]].values;
 # [3]75x25 
 # [4]100x80
 
-tag = 3; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
+tag = 1; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
 
-itens = np.arange(847,859,1);
+itens = np.arange(709,712,1);
 
 #itens = np.arange(152);
 
@@ -65,6 +65,9 @@ except:
     print("Something you specified probably doesn't exist!")
 
 
+
+
+    
 
 '''
 for item in itens:

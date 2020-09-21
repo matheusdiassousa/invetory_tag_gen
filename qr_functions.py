@@ -217,16 +217,16 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 17);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 15);
     text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 17);
-    t1.text( (15,130), data_pd, font = textFont, fill=(0,0,0));
-    t1.text( (15,150), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
-    t1.text( (15,170), data_pn, font = text2Font, fill=(0,0,0));
-    t1.text( (15,190), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
+    t1.text( (10,130), data_pd, font = textFont, fill=(0,0,0));
+    t1.text( (10,150), 'P/M: ' + data_model, font = text2Font, fill=(0,0,0));
+    t1.text( (10,170), data_pn, font = text2Font, fill=(0,0,0));
+    t1.text( (10,190), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/gen_tags/' + file_name + '.png');
+    qr_img.save('images/gen_tags/' + data_item + '.png');
 
 
 
@@ -241,6 +241,21 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     else:
         pass;
 
-#def adhesive_tag_composition_102x23(file_name):
-    
+def adhesive_tag_composition_102x23(img1, img2, img3):
+    size = "34x23";
+    background_102x23 = Image.open('images/base_imgs_'+size+'/102x23_background.png');
+    img_mounting = background_102x23.copy();
 
+    img1open = Image.open('images/gen_tags/'+str(img1)+'.png');
+    img2open = Image.open('images/gen_tags/'+str(img2)+'.png');
+    img3open = Image.open('images/gen_tags/'+str(img3)+'.png');
+
+    img1_pos = ( (1) , (1) );
+    img2_pos = ( (340) , (1) );
+    img3_pos = ( (680) , (1) );
+
+    img_mounting.paste(img1open, img1_pos);
+    img_mounting.paste(img2open, img2_pos);
+    img_mounting.paste(img3open, img3_pos);
+
+    img_mounting.save('images/gen_tags/'+str(img1)+str(img2)+str(img3)+'.png');
