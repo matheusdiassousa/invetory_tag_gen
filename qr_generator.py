@@ -14,9 +14,16 @@ number_of_itens = data[col_names[1]].values;
 
 #print(number_of_itens)
 
-itens = [825,826];
+#itens = [825,826];
 
-#itens = np.arange(812,824,1);
+# [1]34x23
+# [2]50x30
+# [3]75x25 
+# [4]100x80
+
+tag = 3; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
+
+itens = np.arange(847,859,1);
 
 #itens = np.arange(152);
 
@@ -40,7 +47,15 @@ try:
             textl4 = str(data_pn);
             textl5 = str(data_sn);
             
-            adhesive_tag_75x25(filename, textl1, textl2, textl3, textl4, textl5, True);
+            if(tag == 1):
+                adhesive_tag_34x23(filename, textl1, textl2, textl3, textl4, textl5, True);
+            if(tag == 2):
+                adhesive_tag_50x30(filename, textl1, textl2, textl3, textl4, textl5, True);
+            if(tag == 3):
+                adhesive_tag_75x25(filename, textl1, textl2, textl3, textl4, textl5, True);
+            if(tag == 4):
+                adhesive_tag_100x80(filename, textl1, textl2, textl3, textl4, textl5, True);                                 
+
             #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, textl5, True);
             #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, True);
             #adhesive_tag_75x25(str('19801ade-3f7e-4195-9e25-9b112021eacd'), filename, True, str(data_pd), str(data_model), str(data_item));

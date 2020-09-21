@@ -55,7 +55,7 @@ def adhesive_tag_75x25(file_name, data_pd, data_model, data_item, data_pn, data_
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/gen_tags_'+size+'/' + file_name + '.png');
+    qr_img.save('images/gen_tags/' + file_name + '.png');
 
 
 
@@ -112,7 +112,7 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/base_imgs_'+size+'/' + file_name + '.png');
+    qr_img.save('images/gen_tags/' + file_name + '.png');
 
 
 
@@ -169,7 +169,7 @@ def adhesive_tag_50x30(file_name, data_pd, data_model, data_item, data_pn, data_
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/base_imgs_'+size+'/' + file_name + '.png');
+    qr_img.save('images/gen_tags/' + file_name + '.png');
 
 
 
@@ -204,8 +204,8 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     img_mounting = background_34x23.copy();
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
-    eld_logo_pos = ( (45) , (25) );
-    qrcode_img_pos = ( (int(background_34x23.width) - int(qrcode_img_resized.width)+5) , ( int(background_34x23.height/2) - int(qrcode_img_resized.height/2)+40 ));
+    eld_logo_pos = ( (15) , (25) );
+    qrcode_img_pos = ( (int(background_34x23.width) - int(qrcode_img_resized.width)+5) , ( int(background_34x23.height/2) - int(qrcode_img_resized.height/2)-40 ));
     img_mounting.paste(eld_logo_resized, eld_logo_pos, eld_logo_resized);
     img_mounting.paste(qrcode_img_resized, qrcode_img_pos);
     
@@ -217,16 +217,16 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 19);
-    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 19);
-    t1.text( (15,110), data_pd, font = textFont, fill=(0,0,0));
-    t1.text( (15,130), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
-    t1.text( (15,150), data_pn, font = text2Font, fill=(0,0,0));
-    t1.text( (15,170), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 17);
+    text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 17);
+    t1.text( (15,130), data_pd, font = textFont, fill=(0,0,0));
+    t1.text( (15,150), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
+    t1.text( (15,170), data_pn, font = text2Font, fill=(0,0,0));
+    t1.text( (15,190), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
-    qr_img.save('images/base_imgs_'+size+'/' + file_name + '.png');
+    qr_img.save('images/gen_tags/' + file_name + '.png');
 
 
 
@@ -240,3 +240,7 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
 
     else:
         pass;
+
+#def adhesive_tag_composition_102x23(file_name):
+    
+
