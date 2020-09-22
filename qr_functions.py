@@ -259,3 +259,6 @@ def adhesive_tag_composition_102x23(img1, img2, img3):
     img_mounting.paste(img3open, img3_pos);
 
     img_mounting.save('images/gen_tags/'+str(img1)+str(img2)+str(img3)+'.png');
+
+
+
