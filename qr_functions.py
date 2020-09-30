@@ -4,7 +4,7 @@ import matplotlib.image as pltimg
 import os
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
-
+from barcode import 128
 
 
 
@@ -91,7 +91,7 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
     eld_logo_pos = ( (200) , (100) );
-    qrcode_img_pos = ( (int(background_100x80.width) - int(qrcode_img_resized.width) - 20) , ( int(background_100x80.height/2) - int(qrcode_img_resized.height/2)+70 ));
+    qrcode_img_pos = ( (int(background_100x80.width) - int(qrcode_img_resized.width) - 380) , ( int(background_100x80.height/2) - int(qrcode_img_resized.height/2)+270 ));
     img_mounting.paste(eld_logo, eld_logo_pos, eld_logo);
     img_mounting.paste(qrcode_img_resized, qrcode_img_pos);
     
@@ -103,10 +103,10 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
     qr_img.thumbnail((595, 595));
     
     t1 = ImageDraw.Draw(qr_img);
-    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 24);
+    textFont = ImageFont.truetype('fonts/ARIALNB.TTF', 20);
     text2Font = ImageFont.truetype('fonts/ARIALNB.TTF', 24);
     t1.text( (20,220), data_pd, font = textFont, fill=(0,0,0));
-    t1.text( (20,250), 'P/M: ' + data_model, font = textFont, fill=(0,0,0));
+    t1.text( (20,250), 'P/M: ' + data_model, font = text2Font, fill=(0,0,0));
     t1.text( (20,280), data_pn, font = text2Font, fill=(0,0,0));
     t1.text( (20,310), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
 

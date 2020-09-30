@@ -1,3 +1,4 @@
+'''
 from qr_functions import *
 
 file_name = "tag_test";
@@ -11,3 +12,10 @@ delete_temp_files = False;
 #adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files);
 #adhesive_tag_50x30(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files);
 adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files);
+'''
+
+import barcode
+
+cd128 = barcode.get_barcode_class('code128');
+codigo = cd128('ELD-SMTMAT-CAPILLARY-CAPH85CD115-479');
+fullname = codigo.save('filename');
