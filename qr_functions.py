@@ -1,10 +1,15 @@
+# Author: Matheus Dias Sousa
+# Instituto de Pesquisas Eldorado
+# Funções para gerar arquivos .png das etiquetas em diferentes dimensões de produtos cadastrados na planilha Eldorado_Inventory.xlsx 
+
+
 from pyqrcode import QRCode
 import matplotlib.pyplot as plt
 import matplotlib.image as pltimg
 import os
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
-from barcode import 128
+#from barcode import 128
 
 
 
@@ -71,9 +76,9 @@ def adhesive_tag_75x25(file_name, data_pd, data_model, data_item, data_pn, data_
         pass;
 
 
-def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files):
+def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data_sn, data_qty, delete_temp_files):
     size = "100x80";
-    qrcode = QRCode(data_pn); #Gera o Qr Code com os dados vindos do campo part number da planilha do inventório
+    qrcode = QRCode(data_pn+','+data_qty); #Gera o Qr Code com os dados vindos do campo part number da planilha do inventório
     qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
 
     qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
@@ -91,7 +96,7 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
     eld_logo_pos = ( (200) , (100) );
-    qrcode_img_pos = ( (int(background_100x80.width) - int(qrcode_img_resized.width) - 380) , ( int(background_100x80.height/2) - int(qrcode_img_resized.height/2)+270 ));
+    qrcode_img_pos = ( (int(background_100x80.width) - int(qrcode_img_resized.width) - 380) , ( int(background_100x80.height/2) - int(qrcode_img_resized.height/2)+290 ));
     img_mounting.paste(eld_logo, eld_logo_pos, eld_logo);
     img_mounting.paste(qrcode_img_resized, qrcode_img_pos);
     
@@ -109,6 +114,7 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
     t1.text( (20,250), 'P/M: ' + data_model, font = text2Font, fill=(0,0,0));
     t1.text( (20,280), data_pn, font = text2Font, fill=(0,0,0));
     t1.text( (20,310), 'S/N: ' + data_sn, font = text2Font, fill=(0,0,0));
+    t1.text( (20,340), 'Qty: ' + data_qty, font = text2Font, fill=(0,0,0));
 
     qr_img.save('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
     qr_img = Image.open('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png').convert('LA');
@@ -119,7 +125,7 @@ def adhesive_tag_100x80(file_name, data_pd, data_model, data_item, data_pn, data
 
     #imgpil.show()
     if(delete_temp_files == True):
-        os.remove('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
+        #os.remove('images/base_imgs_'+size+'/temp_imgs/eld_logo_resized.png');
         os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png');
         os.remove('images/base_imgs_'+size+'/temp_imgs/' + file_name + '.png');
         os.remove('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png');

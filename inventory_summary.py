@@ -1,3 +1,8 @@
+# Author: Matheus Dias Sousa
+# Instituto de Pesquisas Eldorado
+# Algoritmo para balanço de entrada e saída dos materiais
+
+
 import pandas as pd
 import os
 import numpy as np

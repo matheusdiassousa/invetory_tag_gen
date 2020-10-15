@@ -1,3 +1,7 @@
+# Author: Matheus Dias Sousa
+# Instituto de Pesquisas Eldorado
+# Funções para gerar as etiquetas desejadas
+
 from qr_functions import *
 import pandas as pd
 import os
@@ -21,8 +25,8 @@ number_of_itens = data[col_names[1]].values;
 # [3]75x25 
 # [4]100x80
 
-tag = 3; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
-itens = [248,249];
+tag = 4; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
+itens = [865,866];
 #itens = np.arange(536,636,1);
 
 #itens = np.arange(152);
@@ -72,6 +76,7 @@ for item in itens:
     data_model = data.loc[item, 'Product Model'];
     data_pn = data.loc[item, 'P/N'];
     data_sn = data.loc[item, 'Serial Number'];
+    data_qty = data.loc[item, 'Qty'];
     print(item, data_item, data_pd, data_model);
     if(str(data_pd) != "nan"):
         #QRCode = str(data_item) + '/' + str(data_model) + '/' + str(data_pd);
@@ -82,7 +87,7 @@ for item in itens:
         textl3 = str(data_item);
         textl4 = str(data_pn);
         textl5 = str(data_sn);
-            
+        textl6 = str(int(data_qty));
         if(tag == 1):
             adhesive_tag_34x23(filename, textl1, textl2, textl3, textl4, textl5, True);
         if(tag == 2):
@@ -90,7 +95,7 @@ for item in itens:
         if(tag == 3):
             adhesive_tag_75x25(filename, textl1, textl2, textl3, textl4, textl5, True);
         if(tag == 4):
-            adhesive_tag_100x80(filename, textl1, textl2, textl3, textl4, textl5, True);                                 
+            adhesive_tag_100x80(filename, textl1, textl2, textl3, textl4, textl5, textl6, True);                                 
 
         #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, textl5, True);
         #adhesive_tag_75x25(QRCode, filename, textl1, textl2, textl3, textl4, True);
