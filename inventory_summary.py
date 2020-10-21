@@ -100,43 +100,53 @@ for item in with_pn:
     i+=1;
 
 
+try:
+    i = 0;
+    for item in with_pn:
+        print(item)
+        print(i)
+        if( math.isnan(w_gu[i]) ):
+            w_gu[i] = 0;
+        if( math.isnan(w_pj1[i]) ):
+            w_pj1[i] = 0;
+        if( math.isnan(w_pj2[i]) ):
+            w_pj2[i] = 0;
+        if( math.isnan(w_pj3[i]) ):
+            w_pj3[i] = 0;
+        if( math.isnan(w_pj4[i]) ):
+            w_pj4[i] = 0;
 
-i = 0;
-for item in with_pn:
-    if( math.isnan(w_gu[i]) ):
-        w_gu[i] = 0;
-    if( math.isnan(w_pj1[i]) ):
-        w_pj1[i] = 0;
-    if( math.isnan(w_pj2[i]) ):
-        w_pj2[i] = 0;
-    if( math.isnan(w_pj3[i]) ):
-        w_pj3[i] = 0;
-    if( math.isnan(w_pj4[i]) ):
-        w_pj4[i] = 0;
+        print(w_pn[i], w_gu[i], w_pj1[i], w_pj2[i], w_pj3[i], w_pj4[i]);
+        i+=1;
 
-    print(w_pn[i], w_gu[i], w_pj1[i], w_pj2[i], w_pj3[i], w_pj4[i]);
-    i+=1;
+    i = 0;
+except:
+    print("Something is not working properly!");
 
-i = 0;
-for item_inv in inv_PN:
-    j = 0;
-    for item_with in w_pn:
-        if( with_pn[j] == item_inv ):
-            inv_fqty[i] = inv_fqty[i] - w_gu[j] - w_pj1[j] - w_pj2[j] - w_pj3[j] - w_pj4[j];
-            inv_gu[i] = inv_gu[i] + w_gu[j];
-            inv_pj1[i] = inv_pj1[i] + w_pj1[j];
-            inv_pj2[i] = inv_pj2[i] + w_pj2[j];
-            inv_pj3[i] = inv_pj3[i] + w_pj3[j];
-            inv_pj4[i] = inv_pj4[i] + w_pj4[j];
-        j+=1;
-    i+=1;
+try:
+    for item_inv in inv_PN:
+        j = 0;
+        for item_with in w_pn:
+            if( with_pn[j] == item_inv ):
+                inv_fqty[i] = inv_fqty[i] - w_gu[j] - w_pj1[j] - w_pj2[j] - w_pj3[j] - w_pj4[j];
+                inv_gu[i] = inv_gu[i] + w_gu[j];
+                inv_pj1[i] = inv_pj1[i] + w_pj1[j];
+                inv_pj2[i] = inv_pj2[i] + w_pj2[j];
+                inv_pj3[i] = inv_pj3[i] + w_pj3[j];
+                inv_pj4[i] = inv_pj4[i] + w_pj4[j];
+            j+=1;
+        i+=1;
 
+    i=0;
+except:
+    print('Something is not working properly!');
 
-i=0;
-for item in inv_item:
-    print(inv_item[i], inv_desc[i], inv_PN[i], inv_unit[i], inv_quty[i], inv_fqty[i], inv_gu[i], inv_pj1[i], inv_pj2[i], inv_pj3[i], inv_pj4[i]);
-    i+=1;
-
+try:
+    for item in inv_item:
+        print(inv_item[i], inv_desc[i], inv_PN[i], inv_unit[i], inv_quty[i], inv_fqty[i], inv_gu[i], inv_pj1[i], inv_pj2[i], inv_pj3[i], inv_pj4[i]);
+        i+=1;
+except:
+    print('Something is not working properly!');
 
 book = load_workbook(excel_file);
 

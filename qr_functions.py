@@ -197,7 +197,7 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
 
     qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
-    qrcode_img.thumbnail((120,120)); #redimensiona para 210p por 210p
+    qrcode_img.thumbnail((80,80)); #redimensiona para 210p por 210p
     qrcode_img.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
     qrcode_img_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #reabre a imagem redimensionada 
 

@@ -14,8 +14,14 @@ delete_temp_files = False;
 adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_sn, delete_temp_files);
 '''
 
-import barcode
+#import barcode
+##import treepoem #treepoem usa o ghostscript
+import code128
 
-cd128 = barcode.get_barcode_class('code128');
-codigo = cd128('ELD-SMTMAT-CAPILLARY-CAPH85CD115-479');
-fullname = codigo.save('filename');
+code128.image("ELD-SMTMAT-CAPILLARY-CAPH85CD115-479").save("Hello World.png")  # with PIL present
+
+##img_barcode = treepoem.generate_barcode('code128','ELD-SMTMAT-CAPILLARY-CAPH85CD115-479');
+##img_barcode.convert('1').save('filename.png')
+#cd128 = barcode.get_barcode_class('code128');
+#codigo = cd128('ELD-SMTMAT-CAPILLARY-CAPH85CD115-479');
+#fullname = codigo.save('filename');
