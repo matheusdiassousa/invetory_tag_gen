@@ -1,3 +1,16 @@
+from qr_functions import *
+import pandas as pd
+import os
+import numpy as np
+
+excel_file = 'input_data/Eldorado_Inventory.xlsx';
+
+item_dataframe(excel_file);
+
+
+
+
+
 '''
 from qr_functions import *
 
@@ -16,9 +29,9 @@ adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_sn, 
 
 #import barcode
 ##import treepoem #treepoem usa o ghostscript
-import code128
+#import code128
 
-code128.image("ELD-SMTMAT-CAPILLARY-CAPH85CD115-479").save("Hello World.png")  # with PIL present
+#code128.image("ELD-SMTMAT-CAPILLARY-CAPH85CD115-479").save("Hello World.png")  # with PIL present
 
 ##img_barcode = treepoem.generate_barcode('code128','ELD-SMTMAT-CAPILLARY-CAPH85CD115-479');
 ##img_barcode.convert('1').save('filename.png')

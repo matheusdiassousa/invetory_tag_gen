@@ -267,4 +267,93 @@ def adhesive_tag_composition_102x23(img1, img2, img3):
     img_mounting.save('images/gen_tags/'+str(img1)+str(img2)+str(img3)+'.png');
 
 
+def item_read(item, excel_file):
+    
+    data = pd.read_excel(excel_file, sheet_name='inventory_form', skiprows=6);
+    
+    pdes = data.loc[item, 'Product Description'];
+    ptype = data.loc[item, 'Product Type'];
+    p_type = data.loc[item, 'Type'];
+    pmodel = data.loc[item, 'Product Model'];
+    powner = data.loc[item, 'Owner'];
+    pn = data.loc[item, 'P/N'];
+    unit = data.loc[item, 'Unit Type'];
+    qty = data.loc[item, 'Qty'];
+    supplier = data.loc[item, 'Supplier'];
+    manufacturer = data.loc[item, 'Manufacturer'];
+    clienpn = data.loc[item, 'Client P/N'];
+    serialnumber = data.loc[item, 'Serial Number'];
+    location = data.loc[item, 'Location'];
+    sector = data.loc[item, 'Sector'];
+    machine = data.loc[item, 'Machine'];
+    manufdate = data.loc[item, 'Manufactured Date'];
+    expdate = data.loc[item, 'Expiration Date'];
+    rcvdate = data.loc[item, 'Rcv. Date'];
+    project = data.loc[item, 'Project'];
+    invoice = data.loc[item, 'Invoice'];
 
+    item_info = [pdes, ptype, p_type, pmodel, powner, pn, unit, qty, supplier, manufacturer, clienpn, serialnumber, location, sector, machine, manufdate, expdate, rcvdate, project, invoice];
+
+    return item_info
+
+def item_dataframe(excel_file):
+    data = pd.read_excel(excel_file, sheet_name='inventory_form', skiprows=6);
+    col_names = data.columns.values.tolist();
+
+    
+    pdes = data['Product Description'];
+    item = data['Item'];
+    ptype = data['Product Type'];
+    p_type = data.['Type'];
+    pmodel = data.['Product Model'];
+    powner = data.['Owner'];
+    pn = data.['P/N'];
+    unit = data.['Unit Type'];
+    qty = data.['Qty'];
+    supplier = data.['Supplier'];
+    manufacturer = data.['Manufacturer'];
+    clienpn = data.['Client P/N'];
+    serialnumber = data.['Serial Number'];
+    location = data.['Location'];
+    sector = data.['Sector'];
+    machine = data.['Machine'];
+    manufdate = data.['Manufactured Date'];
+    expdate = data.['Expiration Date'];
+    rcvdate = data.['Rcv. Date'];
+    project = data.['Project'];
+    invoice = data.['Invoice'];
+
+
+
+    
+
+
+def item_write(item):
+    book = load_workbook(excel_file);
+    writer = pd.ExcelWriter(excel_file, mode='a');
+    writer.book = book
+    writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+
+
+    df = pd.DataFrame({
+        'Description': inv_desc,
+        'P/N': inv_PN,
+        'Unit': inv_unit,
+        'Total Qty': inv_quty,
+        'Free Qty': inv_fqty,
+        'General Use (Qty)': inv_gu,
+        'P&D (Qty)': inv_pj1,
+        'uMCP (Qty)': inv_pj2,
+        'UFS (Qty)': inv_pj3,
+        'Project_2 (Qty)': inv_pj4,
+    });
+
+    df.to_excel(writer, sheet_name = 'summary', index = False, header=False, startrow=7);
+    writer.save();
+
+
+
+    #print(item, pdes, ptype, p_type, pmodel, powner, pn, unit, qty, supplier, manufacturer, clienpn, serialnumber, location, sector, machine, manufdate, expdate, rcvdate, project, invoice)
+
+
+    #data_pd = data.loc[item, 'Product Description'];
