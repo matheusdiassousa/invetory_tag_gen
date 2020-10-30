@@ -304,24 +304,24 @@ def item_dataframe(excel_file):
     pdes = data['Product Description'];
     item = data['Item'];
     ptype = data['Product Type'];
-    p_type = data.['Type'];
-    pmodel = data.['Product Model'];
-    powner = data.['Owner'];
-    pn = data.['P/N'];
-    unit = data.['Unit Type'];
-    qty = data.['Qty'];
-    supplier = data.['Supplier'];
-    manufacturer = data.['Manufacturer'];
-    clienpn = data.['Client P/N'];
-    serialnumber = data.['Serial Number'];
-    location = data.['Location'];
-    sector = data.['Sector'];
-    machine = data.['Machine'];
-    manufdate = data.['Manufactured Date'];
-    expdate = data.['Expiration Date'];
-    rcvdate = data.['Rcv. Date'];
-    project = data.['Project'];
-    invoice = data.['Invoice'];
+    p_type = data['Type'];
+    pmodel = data['Product Model'];
+    powner = data['Owner'];
+    pn = data['P/N'];
+    unit = data['Unit Type'];
+    qty = data['Qty'];
+    supplier = data['Supplier'];
+    manufacturer = data['Manufacturer'];
+    clienpn = data['Client P/N'];
+    serialnumber = data['Serial Number'];
+    location = data['Location'];
+    sector = data['Sector'];
+    machine = data['Machine'];
+    manufdate = data['Manufactured Date'];
+    expdate = data['Expiration Date'];
+    rcvdate = data['Rcv. Date'];
+    project = data['Project'];
+    invoice = data['Invoice'];
 
 
 
