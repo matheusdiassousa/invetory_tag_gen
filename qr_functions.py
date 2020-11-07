@@ -267,4 +267,35 @@ def adhesive_tag_composition_102x23(img1, img2, img3):
     img_mounting.save('images/gen_tags/'+str(img1)+str(img2)+str(img3)+'.png');
 
 
+class Item:
+    def __init__(self, item, pDescription, pType, _typeP, pModel, owner, unit, qty, supplier, manufacturer, clientPn, serialNumber, storageLoc, storageSector, machineUse, manufactureDate, expirationDate, receiveDate, project, invoice):
+        self.item = item;
+        self.pDescription = pDescription;
+        self.pType = pType;
+        self.typeP = typeP;
+        self.pModel = pModel;
+        self.owner = owner;
+        self.unit = unit;
+        self.qty = qty;
+        self.supplier = supplier;
+        self.manufacturer = manufacturer;
+        self.clientPn = clientPn;
+        self.serialNumber = serialNumber;
+        self.storageLoc = storageLoc;
+        self.storageSector = storageSector
+        self.machineUse  = machineUse;
+        self.manufactureDate = manufactureDate;
+        self.expirationDate = expirationDate;
+        self.receiveDate = receiveDate;
+        self.project = project;
+        self.invoice = invoice;
+
+    def Item_informations(self):
+        print(self.item)        
+
+
+    pass;
+
+
+
 
