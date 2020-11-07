@@ -4,8 +4,8 @@ import os
 import numpy as np
 
 excel_file = 'input_data/Eldorado_Inventory.xlsx';
-
-item_dataframe(excel_file);
+print(item_read(811, excel_file));
+#item_dataframe(excel_file);
 
 
 

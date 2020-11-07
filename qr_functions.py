@@ -275,14 +275,14 @@ def item_read(item, excel_file):
     
     data = pd.read_excel(excel_file, sheet_name='inventory_form', skiprows=6);
     
-    pdes = data.loc[item, 'Product Description'];
-    ptype = data.loc[item, 'Product Type'];
-    p_type = data.loc[item, 'Type'];
-    pmodel = data.loc[item, 'Product Model'];
-    powner = data.loc[item, 'Owner'];
-    pn = data.loc[item, 'P/N'];
-    unit = data.loc[item, 'Unit Type'];
-    qty = data.loc[item, 'Qty'];
+    pdes = str(data.loc[item, 'Product Description']);
+    ptype = str(data.loc[item, 'Product Type']);
+    p_type = str(data.loc[item, 'Type']);
+    pmodel = str(data.loc[item, 'Product Model']);
+    powner = str(data.loc[item, 'Owner']);
+    pn = str(data.loc[item, 'P/N']);
+    unit = str(data.loc[item, 'Unit Type']);
+    qty = str(data.loc[item, 'Qty']);
     supplier = data.loc[item, 'Supplier'];
     manufacturer = data.loc[item, 'Manufacturer'];
     clienpn = data.loc[item, 'Client P/N'];
@@ -316,7 +316,7 @@ def item_dataframe(excel_file):
     qty = data['Qty'];
     supplier = data['Supplier'];
     manufacturer = data['Manufacturer'];
-    clienpn = data['Client P/N'];
+    clientpn = data['Client P/N'];
     serialnumber = data['Serial Number'];
     location = data['Location'];
     sector = data['Sector'];
@@ -326,6 +326,11 @@ def item_dataframe(excel_file):
     rcvdate = data['Rcv. Date'];
     project = data['Project'];
     invoice = data['Invoice'];
+
+    item_info = [pdes, item, ptype, p_type, pmodel, powner, pn, unit, qty, supplier, manufacturer, 
+                clientpn, serialnumber, location, sector, machine, manufdate, expdate, rcvdate, project, invoice];
+
+    return 
 
 
 
