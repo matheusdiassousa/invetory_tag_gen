@@ -25,8 +25,8 @@ number_of_itens = data[col_names[1]].values;
 # [3]75x25 
 # [4]100x80
 
-tag = 1; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
-itens = [636];
+tag = 4; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
+itens = [929];
 #itens = np.arange(924,927,1);
 
 #itens = np.arange(152);
