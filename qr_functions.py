@@ -10,6 +10,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 import code128
+from resizeimage import resizeimage
 #from barcode import 128
 
 
@@ -200,8 +201,9 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     #qrcode.png('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png', scale=6); #Salva o qr code gerado no caminho indicado
 
     qrcode_img = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode.png'); #abre a img de qrcode gerada e salva
-    im1 = qrcode_img.resize((20,20), resample=0); #redimensiona para 210p por 210p
-    qrcode_img.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
+    im_resized = resizeimage.resize_cover(qrcode_img, [210,50], validate=False);
+    #im1 = qrcode_img.resize((20,20), resample=3); #redimensiona para 210p por 210p
+    im_resized.save('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #salva o qrcode redimensionado
     qrcode_img_resized = Image.open('images/base_imgs_'+size+'/temp_imgs/'+data_item+'_qrcode_resized.png'); #reabre a imagem redimensionada 
 
     eld_logo = Image.open('images/base_imgs_'+size+'/logo_eldorado_597x160.png'); #
@@ -214,7 +216,7 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
 
     #eld_logo_pos = ( (int(background_75x25.width/2) - int(eld_logo_resized.width/2) - 40) , (15) );
     eld_logo_pos = ( (60) , (12) );
-    qrcode_img_pos = ( (int(background_34x23.width) - int(qrcode_img_resized.width)-120) , ( int(background_34x23.height/2) - int(qrcode_img_resized.height/2)-10 ));
+    qrcode_img_pos = ( (int(background_34x23.width) - int(qrcode_img_resized.width)-65) , ( int(background_34x23.height/2) - int(qrcode_img_resized.height/2)-12 ));
     img_mounting.paste(eld_logo_resized, eld_logo_pos, eld_logo_resized);
     img_mounting.paste(qrcode_img_resized, qrcode_img_pos);
     
@@ -250,6 +252,13 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
 
     else:
         pass;
+def adhesive_102x23uniter(item):
+    for(i in item):
+        lista = len(item)
+        if(len(item) = 3):
+            
+        
+
 
 def adhesive_tag_composition_102x23(img1, img2, img3):
     size = "34x23";
