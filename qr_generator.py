@@ -23,9 +23,10 @@ number_of_itens = data[col_names[1]].values;
 # [3]75x25 
 # [4]100x80
 
-tag = 1; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
-itens = [929];
-#itens = np.arange(924,927,1);
+tag =1; # [1]34x23 [2]50x30 [3]75x25 [4]100x80
+#itens = [934];
+itens = np.arange(936,942,1);
+
 
 #itens = np.arange(152);
 
@@ -66,6 +67,30 @@ for item in itens:
     else:
         print('This item doesn\'t exist!')
 
+if(tag==1):
+    for item in itens:
+        
+
+        if(len(itens) >= 5):
+            adhesive_tag_composition_102x23(itens[0],itens[1],itens[2]);
+            itens = np.delete(itens,0)
+            itens = np.delete(itens,0)
+            itens = np.delete(itens,0)
+            
+        
+
+        elif(len(itens) == 4):
+            adhesive_tag_composition_102x23(itens[0],itens[1],itens[2]);
+            adhesive_tag_composition_102x23(itens[3],itens[3],itens[3]);
+
+        elif(len(itens) == 3):
+            adhesive_tag_composition_102x23(itens[0],itens[1],itens[2]);
+
+        elif(len(itens) == 2):
+            adhesive_tag_composition_102x23(itens[0],itens[1],itens[1]);
+
+        elif(len(itens) == 1):
+            adhesive_tag_composition_102x23(itens[0],itens[0],itens[0]);
 
 
 

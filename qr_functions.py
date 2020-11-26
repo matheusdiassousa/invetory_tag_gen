@@ -253,10 +253,10 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
     else:
         pass;
 def adhesive_102x23uniter(item):
-    for(i in item):
+    for i in item:
         lista = len(item)
-        if(len(item) = 3):
-            
+        if(len(item) == 3):
+            print(item)
         
 
 
