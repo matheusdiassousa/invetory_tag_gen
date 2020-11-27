@@ -339,7 +339,7 @@ def item_dataframe(excel_file):
     item_info = [pdes, item, ptype, p_type, pmodel, powner, pn, unit, qty, supplier, manufacturer, 
                 clientpn, serialnumber, location, sector, machine, manufdate, expdate, rcvdate, project, invoice];
 
-    return 
+    return item_info
 
 
 
