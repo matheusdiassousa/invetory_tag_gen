@@ -47,7 +47,6 @@ df = pd.DataFrame({
 });
 
 
-
 w_itens = data_w['Item'];
 w_qty = data_w['Qty']
 i=0;

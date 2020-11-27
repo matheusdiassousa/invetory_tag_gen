@@ -252,12 +252,7 @@ def adhesive_tag_34x23(file_name, data_pd, data_model, data_item, data_pn, data_
 
     else:
         pass;
-def adhesive_102x23uniter(item):
-    for i in item:
-        lista = len(item)
-        if(len(item) == 3):
-            print(item)
-        
+
 
 
 def adhesive_tag_composition_102x23(img1, img2, img3):
@@ -341,37 +336,3 @@ def item_dataframe(excel_file):
 
     return item_info
 
-
-
-    
-
-
-def item_write(item):
-    book = load_workbook(excel_file);
-    writer = pd.ExcelWriter(excel_file, mode='a');
-    writer.book = book
-    writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
-
-
-    df = pd.DataFrame({
-        'Description': inv_desc,
-        'P/N': inv_PN,
-        'Unit': inv_unit,
-        'Total Qty': inv_quty,
-        'Free Qty': inv_fqty,
-        'General Use (Qty)': inv_gu,
-        'P&D (Qty)': inv_pj1,
-        'uMCP (Qty)': inv_pj2,
-        'UFS (Qty)': inv_pj3,
-        'Project_2 (Qty)': inv_pj4,
-    });
-
-    df.to_excel(writer, sheet_name = 'summary', index = False, header=False, startrow=7);
-    writer.save();
-
-
-
-    #print(item, pdes, ptype, p_type, pmodel, powner, pn, unit, qty, supplier, manufacturer, clienpn, serialnumber, location, sector, machine, manufdate, expdate, rcvdate, project, invoice)
-
-
-    #data_pd = data.loc[item, 'Product Description'];
